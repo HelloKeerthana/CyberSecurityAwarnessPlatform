@@ -1,31 +1,18 @@
 import React from "react";
+import { Link, useNavigate } from "react-router-dom";
+import Navigation from "../components/Navigation";
 import "./Main.css";
 
 function Main() {
+  const navigate = useNavigate();
+
+  const handleStartLearning = () => {
+    navigate('/modules');
+  };
+
   return (
     <div className="landing">
-
-      {/* NAVBAR */}
-      <nav className="navbar">
-
-        <div className="logo">
-          🛡️ CyberShield
-        </div>
-
-        <ul className="nav-links">
-          <li>Home</li>
-          <li>Modules</li>
-          <li>Simulations</li>
-          <li>About</li>
-        </ul>
-
-        <div className="nav-buttons">
-          <button className="login-btn">Login</button>
-          <button className="signup-btn">Sign Up</button>
-        </div>
-
-      </nav>
-
+      <Navigation />
 
       {/* HERO SECTION */}
       <section className="hero-section">
@@ -38,7 +25,7 @@ function Main() {
           </span>
 
           <h1>
-            Master Your <span>Digital Safety</span>
+            Master Your <span className="highlight">Digital Safety</span>
           </h1>
 
           <p>
@@ -48,7 +35,7 @@ function Main() {
           </p>
 
           <div className="hero-buttons">
-            <button className="primary-btn">
+            <button className="primary-btn" onClick={handleStartLearning}>
               Start Learning for Free
             </button>
 
@@ -63,9 +50,10 @@ function Main() {
         {/* RIGHT IMAGE */}
         <div className="hero-image">
           <img
-            src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31"
+            src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=800&q=80"
             alt="Cyber Security"
-        />
+            style={{width: '100%', height: '100%', objectFit: 'cover'}}
+          />
         </div>
 
       </section>

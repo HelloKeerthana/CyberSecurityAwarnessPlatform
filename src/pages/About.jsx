@@ -1,285 +1,379 @@
-import { Link } from 'react-router-dom'
+import Navigation from '../components/Navigation';
+import { useEffect } from 'react';
 
 export default function About() {
+  useEffect(() => {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("animate-fade-in-up");
+        }
+      });
+    }, { threshold: 0.1 });
+
+    const elements = document.querySelectorAll(".observe-fade");
+    elements.forEach((el) => observer.observe(el));
+
+    return () => observer.disconnect();
+  }, []);
+
   return (
-    <div className="bg-background-light dark:bg-background-dark font-display text-slate-900 dark:text-slate-100 min-h-screen">
-      <div className="relative flex min-h-screen flex-col">
-        {/* Top Navigation */}
-        <header className="flex items-center justify-between border-b border-slate-200 dark:border-slate-800 bg-white dark:bg-background-dark px-6 py-3 sticky top-0 z-50">
-          <div className="flex items-center gap-4">
-            <div className="text-primary">
-              <span className="material-symbols-outlined text-3xl">shield_with_heart</span>
-            </div>
-            <h2 className="text-lg font-bold tracking-tight">CyberShield <span className="text-primary">Simulation</span></h2>
-            <div className="ml-4 flex items-center gap-2 rounded-full bg-primary/10 px-3 py-1 text-xs font-semibold text-primary">
-              <span className="material-symbols-outlined text-sm">lock_open</span>
-              SANDBOX MODE
-            </div>
-          </div>
-          <div className="flex items-center gap-4">
-            <div className="flex gap-2">
-              <button className="flex size-10 items-center justify-center rounded-lg bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 hover:bg-slate-200">
-                <span className="material-symbols-outlined">notifications</span>
-              </button>
-              <button className="flex size-10 items-center justify-center rounded-lg bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 hover:bg-slate-200">
-                <span className="material-symbols-outlined">help</span>
-              </button>
-            </div>
-            <div className="h-8 w-px bg-slate-200 dark:bg-slate-800 mx-2"></div>
-            <div className="flex items-center gap-3">
-              <div className="text-right hidden sm:block">
-                <p className="text-xs font-bold">Alex Rivera</p>
-                <p className="text-[10px] text-slate-500 uppercase">Security Analyst</p>
-              </div>
-              <div className="size-10 rounded-full bg-primary/20 flex items-center justify-center border border-primary/30 overflow-hidden">
-                <img 
-                  className="w-full h-full object-cover" 
-                  src="https://lh3.googleusercontent.com/aida-public/AB6AXuCuV3Ql8797ANQmRITnx4xe_BLYAkVPDXlbGuzJDnA1SMMkdoPPucS8unI4TxyLjtVR_UOGYt2b76xhCkcj1aAj3t38MMY_DkNt5bDY2U-6QCRlKIX0c3Gw683ABGAgDjYz0_zDpJT4DR3KcFSmguHjsfkM_JIJ-WfV2eWeM30qgddZ25uahGmZ92msGPIJYqf59kKVQQha36HO-qQIGUBVSZs3KyoAbzVeDboVnzgcEuQSDcu-gMRwxazYi44vlBKDElAG2caGmwg"
-                  alt="User profile"
-                />
-              </div>
-            </div>
-          </div>
-        </header>
+    <div className="bg-white">
+      <style>{`
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap');
+        
+        * {
+          scroll-behavior: smooth;
+        }
 
-        <main className="flex flex-1 overflow-hidden">
-          {/* Sidebar Navigation */}
-          <nav className="w-64 border-r border-slate-200 dark:border-slate-800 bg-white dark:bg-background-dark p-4 hidden lg:flex flex-col justify-between">
-            <div className="flex flex-col gap-1">
-              <Link className="flex items-center gap-3 px-3 py-2 text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800 rounded-lg" to="/">
-                <span className="material-symbols-outlined">dashboard</span>
-                <span className="text-sm font-medium">Dashboard</span>
-              </Link>
-              <Link className="flex items-center gap-3 px-3 py-2 bg-primary/10 text-primary rounded-lg" to="/about">
-                <span className="material-symbols-outlined">sports_esports</span>
-                <span className="text-sm font-medium">Active Simulation</span>
-              </Link>
-              <Link className="flex items-center gap-3 px-3 py-2 text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800 rounded-lg" to="/simulations">
-                <span className="material-symbols-outlined">library_books</span>
-                <span className="text-sm font-medium">Training Library</span>
-              </Link>
-              <a className="flex items-center gap-3 px-3 py-2 text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800 rounded-lg" href="#">
-                <span className="material-symbols-outlined">analytics</span>
-                <span className="text-sm font-medium">Performance Metrics</span>
-              </a>
-            </div>
-            <div className="rounded-xl bg-slate-900 p-4 text-white">
-              <p className="text-xs font-bold uppercase tracking-wider text-slate-400 mb-2">Current Session</p>
-              <div className="flex items-center gap-2 mb-3">
-                <span className="material-symbols-outlined text-primary">timer</span>
-                <span className="text-lg font-mono tracking-widest">04:12</span>
-              </div>
-              <div className="space-y-2">
-                <div className="flex justify-between text-[10px] uppercase">
-                  <span>Phishing Score</span>
-                  <span>85%</span>
-                </div>
-                <div className="h-1 w-full bg-slate-700 rounded-full overflow-hidden">
-                  <div className="h-full bg-primary" style={{width: '85%'}}></div>
-                </div>
-              </div>
-            </div>
-          </nav>
+        @keyframes fadeInUp {
+          from {
+            opacity: 0;
+            transform: translateY(30px);
+          }
+          to {
+            opacity: 1;
+            transform: translateY(0);
+          }
+        }
 
-          {/* Main Simulation Workspace */}
-          <div className="flex-1 flex flex-col bg-slate-50 dark:bg-slate-900 p-6 overflow-y-auto">
-            {/* Progress Header */}
-            <div className="mb-6 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
-              <div>
-                <h1 className="text-2xl font-bold tracking-tight">Scenario: Suspicious Account Activity</h1>
-                <p className="text-slate-500 text-sm">Analyze the incoming message and decide the best course of action.</p>
-              </div>
-              <div className="flex items-center gap-4 bg-white dark:bg-background-dark p-2 rounded-lg border border-slate-200 dark:border-slate-800">
-                <div className="flex -space-x-1">
-                  <div className="size-6 rounded-full bg-primary flex items-center justify-center text-[10px] font-bold text-white border-2 border-white dark:border-background-dark">1</div>
-                  <div className="size-6 rounded-full bg-primary flex items-center justify-center text-[10px] font-bold text-white border-2 border-white dark:border-background-dark">2</div>
-                  <div className="size-6 rounded-full bg-slate-200 dark:bg-slate-700 flex items-center justify-center text-[10px] font-bold text-slate-500 border-2 border-white dark:border-background-dark">3</div>
-                  <div className="size-6 rounded-full bg-slate-200 dark:bg-slate-700 flex items-center justify-center text-[10px] font-bold text-slate-500 border-2 border-white dark:border-background-dark">4</div>
-                  <div className="size-6 rounded-full bg-slate-200 dark:bg-slate-700 flex items-center justify-center text-[10px] font-bold text-slate-500 border-2 border-white dark:border-background-dark">5</div>
-                </div>
-                <span className="text-xs font-bold text-slate-600 dark:text-slate-400">STEP 2 OF 5</span>
-              </div>
-            </div>
+        @keyframes slideInLeft {
+          from {
+            opacity: 0;
+            transform: translateX(-40px);
+          }
+          to {
+            opacity: 1;
+            transform: translateX(0);
+          }
+        }
 
-            <div className="grid grid-cols-1 xl:grid-cols-12 gap-6 items-start">
-              {/* Email Client Sandbox */}
-              <div className="xl:col-span-8 bg-white dark:bg-background-dark rounded-xl shadow-sm border border-slate-200 dark:border-slate-800 overflow-hidden flex flex-col h-full min-h-[600px]">
-                {/* Email Header */}
-                <div className="bg-slate-50 dark:bg-slate-800/50 p-6 border-b border-slate-200 dark:border-slate-800">
-                  <div className="flex items-center gap-4 mb-4">
-                    <div className="size-12 rounded-full bg-slate-200 dark:bg-slate-700 flex items-center justify-center text-slate-400">
-                      <span className="material-symbols-outlined text-3xl">person</span>
-                    </div>
-                    <div className="flex-1">
-                      <div className="flex justify-between items-start">
-                        <h3 className="font-bold text-lg">IT Support Security Team</h3>
-                        <span className="text-xs text-slate-400">Today, 10:42 AM</span>
-                      </div>
-                      <p className="text-sm text-slate-500 flex items-center gap-1">
-                        To: <span className="text-slate-700 dark:text-slate-300">alex.rivera@cyber-shield.corp</span>
-                      </p>
-                      <div className="group relative inline-block mt-1">
-                        <p className="text-xs text-primary font-medium cursor-help flex items-center gap-1">
-                          From: <span className="underline decoration-dotted">security-alert@micros0ft-support.com</span>
-                          <span className="material-symbols-outlined text-[14px]">info</span>
-                        </p>
-                        {/* Tooltip/Hotspot Feedback */}
-                        <div className="absolute z-20 left-0 top-full mt-2 w-64 p-3 bg-slate-900 text-white rounded-lg text-xs invisible group-hover:visible shadow-xl border border-slate-700">
-                          <p className="font-bold text-orange-400 mb-1 flex items-center gap-1">
-                            <span className="material-symbols-outlined text-xs">warning</span> 
-                            Suspicious Domain
-                          </p>
-                          Notice the "0" (zero) instead of "o" in "micros0ft". This is a common typo-squatting technique.
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <h2 className="text-xl font-bold">URGENT: Your account password expires in 2 hours</h2>
-                </div>
+        @keyframes float {
+          0%, 100% {
+            transform: translateY(0px);
+          }
+          50% {
+            transform: translateY(-10px);
+          }
+        }
 
-                {/* Email Content */}
-                <div className="p-8 flex-1 overflow-y-auto space-y-4">
-                  <p className="text-slate-700 dark:text-slate-300">Dear Employee,</p>
-                  <p className="text-slate-700 dark:text-slate-300 leading-relaxed">
-                    Our security logs indicate that your corporate password is scheduled to expire today. Due to new security policies enforced by the IT department, you are required to update your credentials immediately to avoid being locked out of the network.
-                  </p>
-                  <div className="my-8 p-6 bg-slate-50 dark:bg-slate-800/30 rounded-xl border border-dashed border-slate-300 dark:border-slate-700 text-center">
-                    <p className="text-sm font-medium mb-4">Please click the button below to secure your account:</p>
-                    <div className="relative group inline-block">
-                      <button className="bg-primary hover:bg-primary/90 text-white px-8 py-3 rounded-lg font-bold transition-all shadow-md">
-                        Update Password Now
-                      </button>
-                      {/* Hover Hotspot */}
-                      <div className="absolute -bottom-10 left-1/2 -translate-x-1/2 bg-slate-800 text-slate-300 text-[10px] px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition-opacity border border-slate-700 whitespace-nowrap z-10">
-                        Link: http://bit.ly/secure-login-3921-update
-                      </div>
-                      {/* Interactive Tooltip */}
-                      <div className="absolute -right-4 -top-4">
-                        <span className="flex h-4 w-4">
-                          <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>
-                          <span className="relative inline-flex rounded-full h-4 w-4 bg-primary"></span>
-                        </span>
-                      </div>
-                      <div className="absolute z-20 left-full ml-4 top-0 w-64 p-3 bg-slate-900 text-white rounded-lg text-xs invisible group-hover:visible shadow-xl border border-slate-700">
-                        <p className="font-bold text-orange-400 mb-1 flex items-center gap-1">
-                          <span className="material-symbols-outlined text-xs">link</span> 
-                          URL Shortener Detected
-                        </p>
-                        Official company portals never use URL shorteners like bit.ly for credential management.
-                      </div>
-                    </div>
-                  </div>
-                  <p className="text-slate-700 dark:text-slate-300 leading-relaxed">
-                    Failure to comply within the next 2 hours will result in automatic account suspension.
-                  </p>
-                  <div className="pt-6 border-t border-slate-100 dark:border-slate-800 text-slate-500 text-sm">
-                    <p>Thank you,</p>
-                    <p className="font-bold text-slate-700 dark:text-slate-300">Global IT Security Division</p>
-                    <p>Reference ID: #SEC-99210-AX</p>
-                  </div>
-                </div>
-              </div>
+        .animate-fade-in-up {
+          animation: fadeInUp 0.7s ease-out forwards;
+        }
 
-              {/* Action Panel */}
-              <div className="xl:col-span-4 space-y-6">
-                {/* Main Actions */}
-                <div className="bg-white dark:bg-background-dark rounded-xl shadow-sm border border-slate-200 dark:border-slate-800 p-6">
-                  <h3 className="font-bold text-lg mb-4 flex items-center gap-2">
-                    <span className="material-symbols-outlined text-primary">touch_app</span>
-                    What's your decision?
-                  </h3>
-                  <div className="grid grid-cols-1 gap-3">
-                    <button className="flex items-center gap-3 w-full p-4 rounded-xl border-2 border-slate-100 dark:border-slate-800 hover:border-red-500 hover:bg-red-50 dark:hover:bg-red-950/20 transition-all text-left group">
-                      <div className="size-10 rounded-lg bg-red-100 dark:bg-red-900/40 text-red-600 flex items-center justify-center group-hover:bg-red-600 group-hover:text-white transition-colors">
-                        <span className="material-symbols-outlined">report</span>
-                      </div>
-                      <div>
-                        <p className="font-bold">Report as Phishing</p>
-                        <p className="text-xs text-slate-500">Flag this email as a security threat</p>
-                      </div>
-                    </button>
-                    <button className="flex items-center gap-3 w-full p-4 rounded-xl border-2 border-slate-100 dark:border-slate-800 hover:border-primary hover:bg-primary/5 transition-all text-left group">
-                      <div className="size-10 rounded-lg bg-slate-100 dark:bg-slate-800 text-slate-600 flex items-center justify-center group-hover:bg-primary group-hover:text-white transition-colors">
-                        <span className="material-symbols-outlined">delete</span>
-                      </div>
-                      <div>
-                        <p className="font-bold">Delete Email</p>
-                        <p className="text-xs text-slate-500">Remove from inbox without reporting</p>
-                      </div>
-                    </button>
-                    <button className="flex items-center gap-3 w-full p-4 rounded-xl border-2 border-slate-100 dark:border-slate-800 hover:border-primary hover:bg-primary/5 transition-all text-left group">
-                      <div className="size-10 rounded-lg bg-slate-100 dark:bg-slate-800 text-slate-600 flex items-center justify-center group-hover:bg-primary group-hover:text-white transition-colors">
-                        <span className="material-symbols-outlined">reply</span>
-                      </div>
-                      <div>
-                        <p className="font-bold">Reply for Clarification</p>
-                        <p className="text-xs text-slate-500">Ask the sender for more details</p>
-                      </div>
-                    </button>
-                  </div>
-                </div>
+        .animate-slide-left {
+          animation: slideInLeft 0.8s ease-out;
+        }
 
-                {/* Investigation Tools */}
-                <div className="bg-white dark:bg-background-dark rounded-xl shadow-sm border border-slate-200 dark:border-slate-800 p-6">
-                  <h3 className="font-bold text-sm uppercase tracking-wider text-slate-500 mb-4">Sandbox Tools</h3>
-                  <div className="space-y-4">
-                    <div className="flex items-center justify-between">
-                      <span className="text-sm font-medium">Domain Lookup</span>
-                      <button className="text-primary text-xs font-bold hover:underline">Scan Domain</button>
-                    </div>
-                    <div className="flex items-center justify-between">
-                      <span className="text-sm font-medium">Header Analysis</span>
-                      <button className="text-primary text-xs font-bold hover:underline">View Headers</button>
-                    </div>
-                    <div className="flex items-center justify-between">
-                      <span className="text-sm font-medium">Attachment Sandbox</span>
-                      <span className="text-xs text-slate-400 italic">No attachments</span>
-                    </div>
-                  </div>
-                </div>
+        .animate-float {
+          animation: float 6s ease-in-out infinite;
+        }
 
-                {/* Immediate Feedback */}
-                <div className="bg-green-50 dark:bg-green-900/20 rounded-xl border border-green-200 dark:border-green-800/50 p-6">
-                  <div className="flex items-center gap-3 text-green-700 dark:text-green-400 mb-2">
-                    <span className="material-symbols-outlined">check_circle</span>
-                    <p className="font-bold">Correct Decision!</p>
-                  </div>
-                  <p className="text-sm text-green-800 dark:text-green-300 leading-relaxed">
-                    Great job! You identified several red flags:
-                  </p>
-                  <ul className="list-disc list-inside mt-2 space-y-1 opacity-80">
-                    <li>Typo-squatted sender domain</li>
-                    <li>Suspicious external bit.ly link</li>
-                    <li>Induced sense of urgency/fear</li>
-                  </ul>
-                  <button className="mt-4 w-full bg-green-600 text-white py-2 rounded-lg font-bold hover:bg-green-700">
-                    Next Scenario
-                  </button>
-                </div>
-              </div>
-            </div>
-          </div>
-        </main>
+        .observe-fade {
+          opacity: 0;
+        }
 
-        {/* Tooltip Instructions Footer */}
-        <footer className="bg-white dark:bg-background-dark border-t border-slate-200 dark:border-slate-800 px-6 py-3 flex items-center justify-between">
-          <div className="flex items-center gap-6">
-            <div className="flex items-center gap-2 text-slate-500 text-xs">
-              <span className="material-symbols-outlined text-sm">mouse</span>
-              <span>Hover over highlighted areas to inspect</span>
-            </div>
-            <div className="flex items-center gap-2 text-slate-500 text-xs">
-              <span className="material-symbols-outlined text-sm">keyboard_command_key</span>
-              <span>CMD+I to open Inspector</span>
-            </div>
-          </div>
-          <div className="flex items-center gap-2 text-slate-400 text-xs">
-            <span>Simulation Instance: #XJ-992-K</span>
-            <span className="material-symbols-outlined text-[10px]">fiber_manual_record</span>
-            <span className="text-green-500 font-bold uppercase tracking-tighter">Live Sandbox</span>
-          </div>
-        </footer>
+        .gradient-text {
+          background: linear-gradient(135deg, #3B82F6 0%, #1E40AF 100%);
+          -webkit-background-clip: text;
+          -webkit-text-fill-color: transparent;
+          background-clip: text;
+        }
+
+        .glass-effect {
+          background: rgba(255, 255, 255, 0.7);
+          backdrop-filter: blur(10px);
+          border: 1px solid rgba(255, 255, 255, 0.18);
+        }
+
+        .card-hover {
+          transition: all 0.4s cubic-bezier(0.23, 1, 0.320, 1);
+        }
+
+        .card-hover:hover {
+          transform: translateY(-8px);
+          box-shadow: 0 20px 40px rgba(59, 130, 246, 0.15);
+        }
+      `}</style>
+
+      {/* NAVBAR */}
+<Navigation />
+
+{/* MAIN CONTENT */}
+<main className="bg-gradient-to-b from-white via-blue-50 to-white min-h-screen">
+  
+  {/* Hero Section */}
+  <section className="relative pt-48 pb-10 px-6 overflow-hidden">
+    {/* Animated Background Elements */}
+    <div className="absolute top-32 right-10 w-72 h-72 bg-blue-100 rounded-full opacity-20 animate-float blur-3xl"></div>
+    <div className="absolute bottom-0 left-10 w-96 h-96 bg-blue-50 rounded-full opacity-30 blur-3xl"></div>
+
+    <div className="max-w-5xl mx-auto relative z-10">
+      <div className="text-center mb-16 animate-slide-left">
+        <h1 className="text-5xl lg:text-7xl font-bold leading-tight text-gray-900 mb-6">
+          About <span className="gradient-text">CyberShield</span>
+        </h1>
+        <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+          Empowering the world with cybersecurity awareness, one learner at a time.
+        </p>
       </div>
     </div>
-  )
+  </section>
+
+        {/* Main Content Section */}
+        <section className="py-20 px-6">
+          <div className="max-w-4xl mx-auto">
+            
+            {/* Mission Statement */}
+            <div className="observe-fade mb-20">
+              <div className="rounded-3xl bg-gradient-to-br from-white to-blue-50 border border-blue-100 p-12 md:p-16 shadow-lg card-hover">
+                <div className="text-blue-600 text-5xl mb-6">🎯</div>
+                <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">Our Mission</h2>
+                <p className="text-lg text-gray-600 leading-relaxed">
+                  We're a simple platform designed to explore ideas, learn new concepts, and build useful digital experiences. 
+                  We focus on clarity, simplicity, and meaningful interaction to make cybersecurity education accessible to everyone.
+                </p>
+              </div>
+            </div>
+
+            {/* Core Values */}
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-20">
+              <div className="observe-fade" style={{ animationDelay: "0.1s" }}>
+                <div className="rounded-2xl bg-gradient-to-br from-green-50 to-green-100 border border-green-200 p-8 h-full card-hover">
+                  <div className="text-5xl mb-4">🌱</div>
+                  <h3 className="text-2xl font-bold text-gray-900 mb-4">Growth & Learning</h3>
+                  <p className="text-gray-600 leading-relaxed">
+                    We believe that learning should be engaging and accessible to everyone. This space is created to experiment, grow, and understand things better through practical exposure.
+                  </p>
+                </div>
+              </div>
+
+              <div className="observe-fade" style={{ animationDelay: "0.2s" }}>
+                <div className="rounded-2xl bg-gradient-to-br from-purple-50 to-purple-100 border border-purple-200 p-8 h-full card-hover">
+                  <div className="text-5xl mb-4">✨</div>
+                  <h3 className="text-2xl font-bold text-gray-900 mb-4">Innovation & Exploration</h3>
+                  <p className="text-gray-600 leading-relaxed">
+                    Sometimes things may feel random, and that is completely fine. Exploration often leads to unexpected discoveries and creative outcomes.
+                  </p>
+                </div>
+              </div>
+
+              <div className="observe-fade" style={{ animationDelay: "0.3s" }}>
+                <div className="rounded-2xl bg-gradient-to-br from-orange-50 to-orange-100 border border-orange-200 p-8 h-full card-hover">
+                  <div className="text-5xl mb-4">🚀</div>
+                  <h3 className="text-2xl font-bold text-gray-900 mb-4">Progress Over Perfection</h3>
+                  <p className="text-gray-600 leading-relaxed">
+                    The goal is not perfection, but progress. Every small step contributes to something bigger over time.
+                  </p>
+                </div>
+              </div>
+
+              <div className="observe-fade" style={{ animationDelay: "0.4s" }}>
+                <div className="rounded-2xl bg-gradient-to-br from-blue-50 to-blue-100 border border-blue-200 p-8 h-full card-hover">
+                  <div className="text-5xl mb-4">🎓</div>
+                  <h3 className="text-2xl font-bold text-gray-900 mb-4">Continuous Improvement</h3>
+                  <p className="text-gray-600 leading-relaxed">
+                    Keep building, keep learning, and keep moving forward. Your journey towards digital safety is our priority.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            {/* Journey Section */}
+            <div className="observe-fade mb-20">
+              <h2 className="text-4xl font-bold text-gray-900 mb-12 text-center">Our Journey</h2>
+              
+              <div className="space-y-8">
+                {[
+                  {
+                    year: "2024",
+                    title: "CyberShield Founded",
+                    desc: "We started with a simple idea: make cybersecurity education accessible, engaging, and practical for everyone."
+                  },
+                  {
+                    year: "2024",
+                    title: "First 1,000 Learners",
+                    desc: "Our community grew rapidly as people discovered the value in our interactive learning approach."
+                  },
+                  {
+                    year: "2025",
+                    title: "Expansion & Innovation",
+                    desc: "We've expanded our module library, added real-world simulation labs, and introduced gamified learning paths."
+                  },
+                  {
+                    year: "2025+",
+                    title: "Global Impact",
+                    desc: "Our vision is to become the leading platform for cybersecurity awareness training worldwide."
+                  }
+                ].map((milestone, idx) => (
+                  <div key={idx} className="flex gap-6 observe-fade" style={{ animationDelay: `${0.2 + idx * 0.15}s` }}>
+                    <div className="flex-shrink-0">
+                      <div className="flex items-center justify-center h-12 w-12 rounded-full bg-blue-600 text-white font-bold text-lg">
+                        {idx + 1}
+                      </div>
+                    </div>
+                    <div className="flex-grow">
+                      <p className="text-sm font-semibold text-blue-600 uppercase tracking-wide">{milestone.year}</p>
+                      <h3 className="text-xl font-bold text-gray-900 mt-1">{milestone.title}</h3>
+                      <p className="text-gray-600 mt-2 leading-relaxed">{milestone.desc}</p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {/* Why Choose Us */}
+            <div className="observe-fade mb-20">
+              <div className="rounded-3xl bg-gradient-to-r from-blue-600 to-blue-700 p-12 md:p-16 text-white text-center shadow-2xl">
+                <h2 className="text-3xl md:text-4xl font-bold mb-6">Why Choose CyberShield?</h2>
+                
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-12">
+                  <div>
+                    <div className="text-5xl mb-4">👨‍🏫</div>
+                    <h3 className="text-xl font-bold mb-3">Expert-Led Content</h3>
+                    <p className="text-blue-100">Designed by seasoned cybersecurity professionals with real-world experience</p>
+                  </div>
+                  <div>
+                    <div className="text-5xl mb-4">💻</div>
+                    <h3 className="text-xl font-bold mb-3">Practical Experience</h3>
+                    <p className="text-blue-100">Hands-on labs and simulations that mimic real cybersecurity challenges</p>
+                  </div>
+                  <div>
+                    <div className="text-5xl mb-4">📈</div>
+                    <h3 className="text-xl font-bold mb-3">Measurable Progress</h3>
+                    <p className="text-blue-100">Track your advancement with certificates, badges, and skill assessments</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Team Section */}
+            <div className="observe-fade mb-20">
+              <h2 className="text-4xl font-bold text-gray-900 mb-12 text-center">Meet Our Team</h2>
+              
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+                {[
+                  {
+                    name: "Sarah Chen",
+                    role: "Founder & CEO",
+                    bio: "Former security architect with 15+ years of experience protecting enterprises.",
+                    emoji: "👩‍💼"
+                  },
+                  {
+                    name: "Marcus Rodriguez",
+                    role: "Head of Content",
+                    bio: "Passionate educator creating engaging cybersecurity courses for all skill levels.",
+                    emoji: "👨‍🏫"
+                  },
+                  {
+                    name: "Alex Kumar",
+                    role: "Lead Developer",
+                    bio: "Full-stack developer building intuitive, secure, and scalable learning platforms.",
+                    emoji: "👨‍💻"
+                  }
+                ].map((member, idx) => (
+                  <div key={idx} className="observe-fade text-center card-hover" style={{ animationDelay: `${0.1 + idx * 0.15}s` }}>
+                    <div className="rounded-2xl bg-gradient-to-br from-white to-gray-50 border border-gray-200 p-8 h-full">
+                      <div className="text-6xl mb-4">{member.emoji}</div>
+                      <h3 className="text-xl font-bold text-gray-900 mb-2">{member.name}</h3>
+                      <p className="text-blue-600 font-semibold mb-4">{member.role}</p>
+                      <p className="text-gray-600 text-sm leading-relaxed">{member.bio}</p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {/* CTA Section */}
+            <div className="observe-fade">
+              <div className="rounded-3xl bg-gradient-to-br from-blue-100 to-blue-50 border-2 border-blue-300 p-12 md:p-16 text-center">
+                <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">Join Our Mission</h2>
+                <p className="text-lg text-gray-600 mb-8 max-w-2xl mx-auto">
+                  Help us empower individuals worldwide with the knowledge and skills to stay safe in the digital world.
+                </p>
+                <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                  <a 
+                    href="/modules"
+                    className="inline-flex items-center justify-center gap-3 px-8 py-4 rounded-xl bg-blue-600 text-white font-semibold text-lg hover:bg-blue-700 transition-all duration-300 shadow-lg hover:shadow-xl hover:translate-y-[-2px]"
+                  >
+                    Start Learning
+                    <span className="text-xl">→</span>
+                  </a>
+                  <a 
+                    href="/contact"
+                    className="inline-flex items-center justify-center gap-3 px-8 py-4 rounded-xl border-2 border-blue-600 text-blue-600 font-semibold text-lg hover:bg-blue-50 transition-all duration-300"
+                  >
+                    Get in Touch
+                    <span className="text-xl">✉️</span>
+                  </a>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </section>
+
+        {/* Footer */}
+        <footer className="bg-gray-900 text-white px-6 py-16 mt-20">
+          <div className="max-w-7xl mx-auto">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-12 mb-12">
+              <div className="col-span-1 sm:col-span-2 lg:col-span-1">
+                <div className="flex items-center gap-3 mb-4">
+                  <div className="w-10 h-10 rounded-lg bg-blue-500 flex items-center justify-center text-xl font-bold">🛡️</div>
+                  <h2 className="text-2xl font-bold">CyberShield</h2>
+                </div>
+                <p className="text-gray-400 text-sm leading-relaxed">
+                  Empowering the world's workforce with cutting-edge cybersecurity awareness training.
+                </p>
+              </div>
+
+              {[
+                {
+                  title: "Platform",
+                  links: [
+                    { label: "Modules", href: "/modules" },
+                    { label: "Simulations", href: "/simulations" },
+                    { label: "Exam", href: "/certs" },
+                  ],
+                },
+                {
+                  title: "Company",
+                  links: [
+                    { label: "About Us", href: "/about" },
+                    { label: "Contact", href: "/contact" },
+                  ],
+                },
+                {
+                  title: "Legal",
+                  links: [
+                    { label: "Privacy Policy", href: "#" },
+                    { label: "Terms of Service", href: "#" },
+                    { label: "Cookie Policy", href: "#" },
+                  ],
+                },
+              ].map((col, idx) => (
+                <div key={idx} className="flex flex-col gap-4">
+                  <h4 className="font-bold text-sm uppercase tracking-wider text-gray-300">{col.title}</h4>
+                  <ul className="flex flex-col gap-3">
+                    {col.links.map((link, i) => (
+                      <li key={i}>
+                        <a href={link.href} className="text-gray-400 text-sm hover:text-blue-400 transition-colors duration-300">
+                          {link.label}
+                        </a>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              ))}
+            </div>
+
+            <div className="border-t border-gray-700 pt-8 text-center text-gray-400 text-sm">
+              © 2025 CyberShield Inc. All rights reserved. Designed for digital safety.
+            </div>
+          </div>
+        </footer>
+
+      </main>
+    </div>
+  );
 }

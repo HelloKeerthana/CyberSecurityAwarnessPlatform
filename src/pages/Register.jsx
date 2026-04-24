@@ -212,7 +212,7 @@ export default function Register() {
                   className="mt-1 size-4 rounded border-slate-300 text-primary focus:ring-primary cursor-pointer"
                 />
                 <label className="text-sm text-slate-500 dark:text-slate-400 leading-tight cursor-pointer" htmlFor="terms">
-                  I agree to the <a className="text-primary hover:underline" href="#">Terms of Service</a> and <a className="text-primary hover:underline" href="#">Privacy Policy</a>.
+                  I agree to the <button className="text-primary hover:underline bg-transparent border-0 cursor-pointer p-0">Terms of Service</button> and <button className="text-primary hover:underline bg-transparent border-0 cursor-pointer p-0">Privacy Policy</button>.
                 </label>
               </div>
 

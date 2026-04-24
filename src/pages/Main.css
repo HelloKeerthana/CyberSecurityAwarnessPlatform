@@ -1,152 +1,173 @@
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
-font-family: "Inter", sans-serif;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Inter", sans-serif;
 }
 
-body{
-background:linear-gradient(180deg,#f8fafc,#eef2f7);
-color:#1f2937;
+body {
+  background: linear-gradient(180deg, #f8fafc, #eef2f7);
+  color: #1f2937;
 }
 
-/* NAVBAR */
-
-.navbar{
-max-width:1200px;
-margin:auto;
-display:flex;
-justify-content:space-between;
-align-items:center;
-padding:20px 10px;
+.landing {
+  width: 100%;
+  background: linear-gradient(135deg, #f6f7f8 0%, #e8ecf1 100%);
+  min-height: 100vh;
 }
-
-.logo{
-font-size:20px;
-font-weight:600;
-color:#2563eb;
-display:flex;
-align-items:center;
-gap:8px;
-}
-
-.nav-links{
-list-style:none;
-display:flex;
-gap:40px;
-font-weight:500;
-}
-
-.nav-links li{
-cursor:pointer;
-transition:0.2s;
-}
-
-.nav-links li:hover{
-color:#2563eb;
-}
-
-.nav-buttons{
-display:flex;
-gap:12px;
-}
-
-.login-btn{
-padding:8px 18px;
-border:1px solid #d1d5db;
-background:white;
-border-radius:8px;
-cursor:pointer;
-}
-
-.signup-btn{
-padding:8px 18px;
-background:#2563eb;
-color:white;
-border:none;
-border-radius:8px;
-cursor:pointer;
-}
-
 
 /* HERO SECTION */
 
-.hero-section{
-max-width:1200px;
-margin:auto;
-display:flex;
-align-items:center;
-justify-content:space-between;
-gap:80px;
-padding:80px 10px;
+.hero-section {
+  max-width: 1200px;
+  margin: auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 80px;
+  padding: 60px 20px 80px 20px;
 }
-
 
 /* TEXT */
 
-.hero-text{
-max-width:520px;
+.hero-text {
+  max-width: 520px;
 }
 
-.badge{
-background:#e8f0ff;
-color:#2563eb;
-padding:6px 14px;
-border-radius:20px;
-font-size:12px;
-font-weight:600;
+.badge {
+  background: #e8f0ff;
+  color: #136dec;
+  padding: 8px 16px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  display: inline-block;
+  margin-bottom: 16px;
 }
 
-.hero-text h1{
-font-size:54px;
-margin-top:20px;
-line-height:1.1;
-font-weight:700;
+.highlight {
+  color: #136dec;
 }
 
-.hero-text span{
-color:#2563eb;
+.hero-text h1 {
+  font-size: 52px;
+  font-weight: 700;
+  color: #1f2937;
+  margin-bottom: 16px;
+  line-height: 1.2;
+  text-align: left;
 }
 
-.hero-text p{
-margin-top:20px;
-font-size:16px;
-color:#6b7280;
-line-height:1.7;
+.hero-text h1 span {
+  color: #136dec;
 }
 
+.hero-text p {
+  margin-top: 20px;
+  font-size: 16px;
+  color: #6b7280;
+  line-height: 1.7;
+}
 
 /* BUTTONS */
 
-.hero-buttons{
-margin-top:30px;
-display:flex;
-gap:16px;
+.hero-buttons {
+  margin-top: 30px;
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
 }
 
-.primary-btn{
-padding:14px 28px;
-background:#2563eb;
-color:white;
-border:none;
-border-radius:10px;
-font-weight:500;
-cursor:pointer;
+.primary-btn {
+  padding: 14px 32px;
+  background: #136dec;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  font-weight: 600;
+  font-size: 16px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 8px 20px rgba(19, 109, 236, 0.25);
+  min-width: 180px;
 }
 
-.secondary-btn{
-padding:14px 24px;
-border:1px solid #d1d5db;
-background:white;
-border-radius:10px;
-cursor:pointer;
+.primary-btn:hover {
+  background: #0d5ac8;
+  transform: translateY(-2px);
+  box-shadow: 0 12px 28px rgba(19, 109, 236, 0.35);
 }
 
+.primary-btn:active {
+  transform: translateY(0);
+}
+
+.secondary-btn {
+  padding: 14px 32px;
+  border: 1px solid #d1d5db;
+  background: white;
+  border-radius: 10px;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 16px;
+  transition: all 0.3s ease;
+  min-width: 160px;
+}
+
+.secondary-btn:hover {
+  background: #f9fafb;
+  border-color: #d1d5db;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  transform: translateY(-2px);
+}
+
+.secondary-btn:active {
+  transform: translateY(0);
+}
 
 /* IMAGE */
 
-.hero-image img{
-width:500px;
-border-radius:20px;
-box-shadow:0 20px 40px rgba(0,0,0,0.15);
+.hero-image {
+  width: 100%;
+  max-width: 500px;
+  height: 500px;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.12);
+}
+
+.hero-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* RESPONSIVE */
+
+@media (max-width: 768px) {
+  .hero-section {
+    flex-direction: column;
+    gap: 40px;
+    padding: 40px 16px;
+  }
+
+  .hero-text h1 {
+    font-size: 36px;
+  }
+
+  .hero-image {
+    max-width: 100%;
+    height: 300px;
+  }
+
+  .hero-buttons {
+    flex-direction: column;
+  }
+
+  .primary-btn,
+  .secondary-btn {
+    width: 100%;
+    min-width: auto;
+  }
 }
