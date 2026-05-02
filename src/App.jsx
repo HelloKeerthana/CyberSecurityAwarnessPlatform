@@ -38,6 +38,10 @@ function App() {
     <Router> 
       <Routes>
 
+
+
+
+        
         {/* PUBLIC ROUTES */}
         <Route path="/" element={<Home />} />
         <Route path="/login" element={<Login />} />
