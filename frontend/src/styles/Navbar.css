@@ -1,0 +1,106 @@
+.navbar {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 2rem;
+  height: 60px;
+  background: rgba(9,9,11,0.85);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-bottom: 1px solid var(--clr-border-soft);
+}
+
+.navbar-brand a {
+  display: flex;
+  align-items: center;
+  gap: 0.55rem;
+  text-decoration: none;
+}
+
+.brand-icon { font-size: 1.35rem; }
+
+.brand-name {
+  font-size: 1.15rem;
+  font-weight: 800;
+  color: var(--clr-text);
+  letter-spacing: -0.03em;
+}
+
+.navbar-links {
+  display: flex;
+  align-items: center;
+  gap: 0.1rem;
+  list-style: none;
+}
+
+.navbar-links li a {
+  padding: 0.45rem 0.85rem;
+  border-radius: var(--radius-sm);
+  color: var(--clr-text-muted);
+  font-weight: 500;
+  font-size: 0.9rem;
+  transition: all var(--transition);
+  text-decoration: none;
+}
+
+.navbar-links li a:hover,
+.navbar-links li a.active {
+  color: var(--clr-text);
+  background: var(--clr-surface-2);
+}
+
+.nav-user {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-left: 0.75rem;
+  padding-left: 0.75rem;
+  border-left: 1px solid var(--clr-border-soft);
+}
+
+.nav-username {
+  color: var(--clr-text-muted);
+  font-size: 0.88rem;
+  font-weight: 500;
+}
+
+.btn-logout {
+  padding: 0.38rem 0.9rem;
+  background: transparent;
+  color: var(--clr-text-dim);
+  border: 1px solid var(--clr-border);
+  border-radius: var(--radius-sm);
+  font-weight: 500;
+  font-size: 0.84rem;
+  cursor: pointer;
+  transition: all var(--transition);
+}
+
+.btn-logout:hover {
+  border-color: var(--clr-danger);
+  color: var(--clr-danger);
+  background: rgba(248,113,113,0.06);
+}
+
+.btn-nav-register {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.42rem 1rem;
+  background: var(--clr-primary);
+  color: #09090b !important;
+  font-weight: 700;
+  font-size: 0.88rem;
+  border-radius: var(--radius-sm);
+  transition: all var(--transition);
+  text-decoration: none;
+  letter-spacing: -0.01em;
+}
+
+.btn-nav-register:hover {
+  background: var(--clr-secondary);
+  color: #09090b !important;
+  transform: translateY(-1px);
+}
