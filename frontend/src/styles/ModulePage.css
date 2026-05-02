@@ -1,0 +1,320 @@
+.module-page {
+  max-width: 860px;
+  margin: 0 auto;
+  padding-bottom: 5rem;
+}
+
+/* ── Hero ── */
+.module-hero {
+  padding: 3.5rem 2rem;
+  margin-bottom: 0;
+  text-align: center;
+  position: relative;
+}
+
+.module-hero--phishing {
+  background: linear-gradient(160deg, rgba(129,140,248,0.07) 0%, transparent 70%);
+  border-bottom: 1px solid rgba(129,140,248,0.15);
+}
+
+.module-hero--malware {
+  background: linear-gradient(160deg, rgba(248,113,113,0.07) 0%, transparent 70%);
+  border-bottom: 1px solid rgba(248,113,113,0.15);
+}
+
+.module-hero--password {
+  background: linear-gradient(160deg, rgba(52,211,153,0.07) 0%, transparent 70%);
+  border-bottom: 1px solid rgba(52,211,153,0.15);
+}
+
+.module-hero-content {
+  max-width: 680px;
+  margin: 0 auto;
+}
+
+.module-hero-icon {
+  font-size: 3.5rem;
+  display: block;
+  margin-bottom: 1rem;
+}
+
+.module-hero h1 {
+  font-size: 2.2rem;
+  font-weight: 900;
+  margin-bottom: 0.7rem;
+  letter-spacing: -0.04em;
+}
+
+.module-hero p {
+  color: var(--clr-text-muted);
+  font-size: 1rem;
+  line-height: 1.75;
+  margin-bottom: 1.5rem;
+}
+
+.module-hero-tags {
+  display: flex;
+  gap: 0.6rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.module-hero-tags span {
+  background: rgba(255,255,255,0.04);
+  border: 1px solid var(--clr-border-soft);
+  border-radius: 99px;
+  padding: 0.25rem 0.75rem;
+  font-size: 0.78rem;
+  color: var(--clr-text-dim);
+  font-weight: 600;
+}
+
+/* ── Content ── */
+.module-content { padding: 0 2rem; }
+
+.content-section {
+  padding: 2.5rem 0;
+  border-bottom: 1px solid var(--clr-border-soft);
+}
+
+.content-section:last-of-type { border-bottom: none; }
+
+.content-section h2 {
+  font-size: 1.35rem;
+  font-weight: 800;
+  margin-bottom: 1rem;
+  letter-spacing: -0.02em;
+}
+
+.content-section p {
+  color: var(--clr-text-muted);
+  line-height: 1.8;
+  margin-bottom: 1rem;
+  font-size: 0.95rem;
+}
+
+/* ── Info Box ── */
+.info-box {
+  display: flex;
+  gap: 1rem;
+  padding: 1.1rem 1.4rem;
+  border-radius: var(--radius-md);
+  margin-top: 1rem;
+}
+
+.info-box--danger {
+  background: rgba(248,113,113,0.06);
+  border: 1px solid rgba(248,113,113,0.2);
+}
+
+.info-box--warning {
+  background: rgba(251,191,36,0.06);
+  border: 1px solid rgba(251,191,36,0.2);
+}
+
+.info-icon { font-size: 1.4rem; flex-shrink: 0; }
+
+.info-box strong {
+  display: block;
+  color: var(--clr-text);
+  font-weight: 700;
+  margin-bottom: 0.3rem;
+  font-size: 0.92rem;
+}
+
+.info-box p { color: var(--clr-text-muted); font-size: 0.88rem; margin: 0; }
+
+/* ── Types Grid ── */
+.types-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0.9rem;
+}
+
+.type-card {
+  background: var(--clr-surface-2);
+  border: 1px solid var(--clr-border-soft);
+  border-radius: var(--radius-md);
+  padding: 1.2rem;
+  transition: all var(--transition);
+}
+
+.type-card:hover { border-color: rgba(129,140,248,0.3); }
+
+.type-card--highlight {
+  border-color: rgba(129,140,248,0.3);
+  background: rgba(129,140,248,0.04);
+}
+
+.type-icon { font-size: 1.6rem; margin-bottom: 0.55rem; display: block; }
+
+.type-card h4 {
+  font-size: 0.95rem;
+  font-weight: 700;
+  margin-bottom: 0.35rem;
+  letter-spacing: -0.01em;
+}
+
+.type-card p { color: var(--clr-text-muted); font-size: 0.85rem; line-height: 1.6; margin: 0; }
+
+/* ── Checklist Grid ── */
+.checklist-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0.9rem;
+}
+
+.checklist-item {
+  display: flex;
+  gap: 0.75rem;
+  align-items: flex-start;
+  background: var(--clr-surface-2);
+  border: 1px solid var(--clr-border-soft);
+  border-radius: var(--radius-md);
+  padding: 0.95rem;
+}
+
+.check-icon { font-size: 1rem; flex-shrink: 0; margin-top: 0.1rem; }
+.check-icon.danger { color: var(--clr-danger); }
+
+.checklist-item strong {
+  display: block;
+  font-size: 0.88rem;
+  font-weight: 700;
+  margin-bottom: 0.18rem;
+  letter-spacing: -0.01em;
+}
+
+.checklist-item p { color: var(--clr-text-dim); font-size: 0.8rem; line-height: 1.55; margin: 0; }
+
+/* ── Steps List ── */
+.steps-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.9rem;
+}
+
+.step-item {
+  display: flex;
+  gap: 1rem;
+  align-items: flex-start;
+}
+
+.step-num {
+  background: var(--clr-primary);
+  color: #09090b;
+  font-size: 0.75rem;
+  font-weight: 900;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  margin-top: 0.1rem;
+}
+
+.step-item h4 { font-size: 0.95rem; font-weight: 700; margin-bottom: 0.25rem; letter-spacing: -0.01em; }
+.step-item p { color: var(--clr-text-muted); font-size: 0.88rem; line-height: 1.65; margin: 0; }
+
+/* ── Password Rules ── */
+.password-rules-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0.75rem;
+}
+
+.rule-card {
+  display: flex;
+  gap: 0.75rem;
+  padding: 0.95rem;
+  border-radius: var(--radius-md);
+  border: 1px solid;
+}
+
+.rule-good { background: rgba(52,211,153,0.05); border-color: rgba(52,211,153,0.2); }
+.rule-bad  { background: rgba(248,113,113,0.05); border-color: rgba(248,113,113,0.18); }
+
+.rule-card strong { display: block; font-size: 0.86rem; font-weight: 700; margin-bottom: 0.18rem; }
+.rule-card p { font-size: 0.78rem; color: var(--clr-text-dim); margin: 0; line-height: 1.5; }
+
+/* ── Password Examples ── */
+.password-examples { display: flex; flex-direction: column; gap: 0.9rem; }
+
+.password-ex {
+  background: var(--clr-surface-2);
+  border: 1px solid var(--clr-border-soft);
+  border-radius: var(--radius-md);
+  padding: 1.1rem;
+}
+
+.pw-strength-bar {
+  height: 4px;
+  background: var(--clr-border);
+  border-radius: 2px;
+  margin-bottom: 0.75rem;
+  overflow: hidden;
+}
+
+.pw-fill { height: 100%; border-radius: 2px; transition: width 0.5s ease; }
+.pw-weak .pw-fill   { background: var(--clr-danger); }
+.pw-medium .pw-fill { background: var(--clr-warning); }
+.pw-strong .pw-fill { background: var(--clr-accent); }
+
+.pw-label {
+  font-size: 0.68rem;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  margin-bottom: 0.35rem;
+  text-transform: uppercase;
+}
+
+.pw-weak .pw-label   { color: var(--clr-danger); }
+.pw-medium .pw-label { color: var(--clr-warning); }
+.pw-strong .pw-label { color: var(--clr-accent); }
+
+.password-ex code {
+  display: block;
+  font-family: 'Courier New', monospace;
+  font-size: 1rem;
+  color: var(--clr-text);
+  margin-bottom: 0.35rem;
+}
+
+.password-ex p { color: var(--clr-text-dim); font-size: 0.8rem; margin: 0; }
+
+/* ── CTA ── */
+.module-cta { padding: 2.5rem 0; }
+
+.cta-card {
+  background: linear-gradient(160deg, var(--clr-surface), rgba(129,140,248,0.04));
+  border: 1px solid rgba(129,140,248,0.18);
+  border-radius: var(--radius-lg);
+  padding: 2.5rem;
+  text-align: center;
+}
+
+.cta-card h3 {
+  font-size: 1.4rem;
+  font-weight: 800;
+  margin-bottom: 0.55rem;
+  letter-spacing: -0.02em;
+}
+
+.cta-card p { color: var(--clr-text-muted); margin-bottom: 1.5rem; font-size: 0.92rem; }
+
+.cta-buttons {
+  display: flex;
+  gap: 0.75rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+@media (max-width: 700px) {
+  .module-content { padding: 0 1rem; }
+  .types-grid { grid-template-columns: 1fr; }
+  .checklist-grid { grid-template-columns: 1fr; }
+  .password-rules-grid { grid-template-columns: 1fr; }
+  .module-hero h1 { font-size: 1.7rem; }
+}
